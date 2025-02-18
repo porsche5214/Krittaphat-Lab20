@@ -97,6 +97,11 @@ int Unit::beAttacked(int oppatk){
 	if(oppatk > def){
 		dmg = oppatk-def;	
 		if(guard_on) dmg = dmg/3;
+	}
+	if(dodge_on){
+	    int r = rand()%2;
+	    if(r == 0) dmg = 0;
+	    else dmg *= 2;
 	}	
 	hp -= dmg;
 	if(hp <= 0){hp = 0;}
